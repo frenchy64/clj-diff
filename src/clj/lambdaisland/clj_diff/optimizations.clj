@@ -3,6 +3,8 @@
   See http://neil.fraser.name/writing/diff/."
   (:import lambdaisland.clj_diff.FastStringOps))
 
+(set! *warn-on-reflection* true)
+
 (defn common-prefix [^String a ^String b]
   (let [i (FastStringOps/commonPrefix a b)]
     [i (.substring a i) (.substring b i)]))
@@ -17,7 +19,7 @@
   "Return a diff if the shorter sequence exists in the longer one. No need to
   use the expensive diff algorithm for this."
   [^String a ^String b ^Integer ca ^Integer cb]
-  (let [[short long] (if (> ca cb) [b a] [a b])
+  (let [[^String short ^String long] (if (> ca cb) [b a] [a b])
         i (int (.indexOf long short))]
     (if (= i -1)
       nil
