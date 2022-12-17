@@ -4,6 +4,8 @@
 
 ## Fixed
 
+- Resolved reflection in `lambdaisland.clj-diff.optimizations`
+
 ## Changed
 
 # 1.4.78 (2022-11-25 / 2c3cae0)
